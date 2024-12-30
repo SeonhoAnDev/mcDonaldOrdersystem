@@ -33,4 +33,4 @@ JavaSpringの基本の理解（JDBC、トランザクション、MVCモデル）
     - 注文ができれば店舗の在庫を調整する。
 
 # ERD
-![ordersys-2024-12-30T18_09_12.jpeg](ordersys-2024-12-30T18_09_12.jpeg)
+![ordersys-2024-12-30T18_09_12.jpeg](ERD.jpeg)
