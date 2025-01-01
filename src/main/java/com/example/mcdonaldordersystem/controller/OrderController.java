@@ -3,6 +3,7 @@ package com.example.mcdonaldordersystem.controller;
 import com.example.mcdonaldordersystem.domain.CreatOrder;
 import com.example.mcdonaldordersystem.service.OrderService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -16,13 +17,13 @@ public class OrderController {
     }
 
     @PostMapping("/api/v1/orders")
-    public Response<Void> createNewOrder(){
-        HashMap<Integer, Integer> orderMap = new HashMap<>();
-        orderMap.put(1, 1);
-        orderMap.put(2, 1);
+    public Response<Void> NewOrder(
+            @RequestBody NewOrderRequest request
+    ){
         orderService.newOrder(CreatOrder.builder()
-                        .customerId(1)
-                        .quantityByProduct(orderMap)
+                .customerId(request.getCustomerId())
+                .storeId(request.getStoreId())
+                .quantityByProduct(request.getProducts())
                 .build());
         return Response.success(null);
     }
